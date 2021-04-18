@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=400"/>
+    <title>Message</title>
+    <link rel="shortcut icon" href="https://silpo.ua/images/favicon.ico"/>
+    <style type="text/css">    .
+    ExternalClass {
+        width: 100%;
+    }
+
+    img {
+        border: 0 none;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+        -ms-interpolation-mode: bicubic;
+    }
+    </style>
+</head>
+<body cellpadding="0" cellspacing="0"
+      style="padding: 0; margin: 0; border: 0; width:100%; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; background-color: #fff;">
+<!--// header -->
+
+
+</table>
+<div align="center" style="margin: 20px 12px 29px 0; font-size: larger;">
+    <a> Поиск резюме</a>
+</div>
+<form action="/action_page.php">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" >
+
+    <tr>
+        <td align="center">
+            Позиция:<br>
+            <input type="text" name="Позиция" id="Position">
+            <br>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            Возраст от:<br>
+            <input type="text" name="Возраст от"   id="AgeTO">
+            <br>
+        </td>
+        <td align="center">
+            Возраст до:<br>
+            <input type="text" name="Возраст до" id="AgeFrom">
+            <br>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            Зарплата от:<br>
+            <input type="text" name="Зарплата от"   id="salaryTo">
+            <br>
+        </td>
+        <td align="center">
+            Зарплата до:<br>
+            <input type="text" name="Зарплата до" id="salaryFrom">
+            <br>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            Англиский:<br>
+            <select name="English" id="English" style="width:160px">
+                    <option value="ДА" align="center">Да</option>
+                    <option value="НЕТ" align="center">НЕТ</option>
+                    <option value="Не важно" align="center">Не важно</option>
+            </select>
+            <br>
+        </td>
+        <td align="center">
+            Пол:<br>
+            <select name="sex" id="sex" style="width:160px ">
+                <option value="М">М</option>
+                <option value="Ж">Ж</option>
+                <option value="Не важно">Не важно</option>
+            </select>
+            <br>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+        Опыт:<br>
+            <select name="experience" id="experience" style="width:160px ">
+                <option value="0">Без опыта</option>
+                <option value="1">До 1 года</option>
+                <option value="2">От 1 года до 2 лет</option>
+                <option value="4">От 2 года до 5 лет</option>
+                <option value="4">От 2 года до 5 лет</option>
+                <option value="7">От 5 года до 10 лет</option>
+                <option value="12">Больше 10 лет</option>
+            </select>
+        <br>
+        </td>
+        <td align="center">
+            Город:<br>
+            <input type="text" name="Location" id="experience">
+            <br>
+        </td>
+    </tr>
+</table>
+    <div style="margin-top: 70px "></div>
+<input type="submit" value="Submit" id="SubmitButton" align="center" style="margin-left: 46% ">
+</form>
+<script>
+    document.getElementById("SubmitButton").onclick = function() {
+
+        // After the values have been submited we gather all the relevant data
+        var Position = document.getElementById("Position").value;
+        var AgeTO = document.getElementById("AgeTO").value;
+        var AgeFrom = document.getElementById("AgeFrom").value;
+        var salaryTo = document.getElementById("salaryTo").value;
+        var salaryFrom = document.getElementById("salaryFrom").value;
+        var English = document.getElementById("English").value;
+        var sex = document.getElementById("sex").value;
+        var experience = document.getElementById("experience").value;
+        var Location = document.getElementById("Location").value;
+
+
+        // Contrusct a json string shich contain the values
+        var OutputString = "{\"Position\":\"" + Position +
+            "\","  +  "\"AgeTO\":\"" + AgeTO +
+            "\","  +  "\"AgeFrom\":\"" + AgeFrom +
+            "\","  +  "\"salaryTo\":\"" + salaryTo +
+            "\","  +  "\"salaryFrom\":\"" + salaryFrom +
+            "\","  +  "\"English\":\"" + English +
+            "\","  +  "\"sex\":\"" + sex +
+            "\","  +  "\"AgeTO\":\"" + AgeTO +
+            "\","  +  "\"Location\":\"" + Location +
+            "\"," +   "\"experience\":\"" + experience + "\"}";
+
+        // Here is the important bit. For a to be valid in terms of the activity the following line needs to be included and called at some point in the execution of the form.
+        //Once the command has been called a string can be passed back to UiPath and the form will close
+        window.external.setResult(OutputString);
+    };
+</script>
+</body>
+</html>

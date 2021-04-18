@@ -1,0 +1,931 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="input" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:j="clr-namespace:JsonDataConversion;assembly=JsonDataConversion" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="AgeTO" Type="InArgument(x:String)" />
+    <x:Property Name="AgeFrom" Type="InArgument(x:String)" />
+    <x:Property Name="sex" Type="InArgument(x:String)" />
+    <x:Property Name="experience" Type="InArgument(x:Int32)" />
+    <x:Property Name="English" Type="InArgument(x:String)" />
+    <x:Property Name="Education" Type="InArgument(x:String)" />
+    <x:Property Name="URL" Type="InArgument(x:String)" />
+    <x:Property Name="Location" Type="InArgument(x:String)" />
+    <x:Property Name="Position" Type="InOutArgument(x:String)" />
+    <x:Property Name="salaryTo" Type="InArgument(x:String)" />
+    <x:Property Name="salaryFrom" Type="InArgument(x:String)" />
+    <x:Property Name="AnyCV" Type="OutArgument(x:Boolean)" />
+  </x:Members>
+  <this:input.AgeTO>
+    <InArgument x:TypeArguments="x:String" />
+  </this:input.AgeTO>
+  <this:input.AgeFrom>
+    <InArgument x:TypeArguments="x:String" />
+  </this:input.AgeFrom>
+  <this:input.sex>
+    <InArgument x:TypeArguments="x:String" />
+  </this:input.sex>
+  <this:input.experience>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:input.experience>
+  <this:input.English>
+    <InArgument x:TypeArguments="x:String" />
+  </this:input.English>
+  <this:input.Education>
+    <InArgument x:TypeArguments="x:String" />
+  </this:input.Education>
+  <this:input.URL>
+    <InArgument x:TypeArguments="x:String" />
+  </this:input.URL>
+  <this:input.Location>
+    <InArgument x:TypeArguments="x:String" />
+  </this:input.Location>
+  <this:input.salaryTo>
+    <InArgument x:TypeArguments="x:String" />
+  </this:input.salaryTo>
+  <this:input.salaryFrom>
+    <InArgument x:TypeArguments="x:String" />
+  </this:input.salaryFrom>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1315,3114</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>input_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="35">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Threading.Tasks</x:String>
+      <x:String>System.Threading</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Form.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>JsonDataConversion</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Threading.Tasks.Extensions</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Form.Activities</AssemblyReference>
+      <AssemblyReference>JsonDataConversion</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="input" sap:VirtualizedContainerService.HintSize="1162,2949" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="OutputString" />
+      <Variable x:TypeArguments="sd:DataTable" Name="DT" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CustomInput Height="{x:Null}" Width="{x:Null}" DisplayName="Custom Input" sap:VirtualizedContainerService.HintSize="1120,86" sap2010:WorkflowViewState.IdRef="CustomInput_1" Result="[OutputString]" URI="FORM.html" />
+    <j:JsonToDataTable InputJsonFilePath="{x:Null}" DisplayName="Json to data table" sap:VirtualizedContainerService.HintSize="1120,22" sap2010:WorkflowViewState.IdRef="JsonToDataTable_1" InputJsonString="[OutputString]" OutputDataTable="[DT]" />
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[DT]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1120,51" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,469" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,377" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[AgeTO]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[row.item("AgeTO").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[AgeFrom]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[row.item("AgeFrom").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[sex]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[row.item("sex").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[salaryTo]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[row.item("salaryTo").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[salaryFrom]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[row.item("salaryFrom").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Int32">[experience]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32( row.item("experience").ToString)]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[English]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[row.item("English").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[URL]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">https://rabota.ua/candidates</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[Location]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[row.item("Location").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[Position]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[row.item("Position").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:MultipleAssign>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEachRow>
+    <Sequence DisplayName="Интернет" sap:VirtualizedContainerService.HintSize="1120,2578" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1078,2486" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Private="False" Url="[URL]">
+        <ui:OpenBrowser.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1044,2385" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1002,2147" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="960,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Игнорируемые действия" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_12" KeyModifiers="None" MouseButton="BTN_LEFT">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="37db6ef5-6598-4eff-ab66-f33e924fe4da" InformativeScreenshot="29c2a07200096910b284390b5455b97c" Selector="&lt;html app='chrome.exe' title='Резюме в Вся Украина, поиск резюме в Вся Украина | Robota.ua' /&gt;&lt;webctrl aaname=' Войти ' tag='SPAN' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;alliance-header&amp;gt;header&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;nav&amp;gt;ul&amp;gt;li&amp;gt;alliance-shared-link-wrapping&amp;gt;a&amp;gt;p&amp;gt;span' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:Click.Target>
+                      </ui:Click>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="960,51" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Игнорируемые действия" sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'SPAN'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="kvalen@ukr.net">
+                        <ui:TypeInto.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="643a969d-23f0-47d2-bc7f-11d1443be6a3" InformativeScreenshot="29c2a07200096910b284390b5455b97c" Selector="&lt;html app='chrome.exe' title='https://rabota.ua/employer/login' /&gt;&lt;webctrl tag='INPUT' type='email' css-selector='body&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;input' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:TypeInto.Target>
+                      </ui:TypeInto>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="960,51" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Игнорируемые действия" sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  ctl00_content_Zo...'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_8" Text="work12345">
+                        <ui:TypeInto.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2701d30c-9420-4553-8639-5068e7ec638c" InformativeScreenshot="24ed2b4695ff018aa7235e0d7ece3fd3" Selector="&lt;html app='chrome.exe' title='https://rabota.ua/employer/login' /&gt;&lt;webctrl tag='INPUT' type='password' css-selector='body&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;input' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:TypeInto.Target>
+                      </ui:TypeInto>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="960,51" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Игнорируемые действия" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  ctl00_content_ZoneLo...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ca65d54d-0bb7-4404-95f3-6e9c90531995" InformativeScreenshot="28e49eaa2a4c4d634da0c2844953cdaf" Selector="&lt;html app='chrome.exe' title='https://rabota.ua/employer/login' /&gt;&lt;webctrl tag='A' css-selector='body&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;a' aaname='Вход' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:Click.Target>
+                      </ui:Click>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
+                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Position" EmptyField="False" sap:VirtualizedContainerService.HintSize="960,51" sap2010:WorkflowViewState.IdRef="TypeInto_5" SendWindowMessages="False" SimulateType="True" Text="[Position]">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3976f6d2-e833-4af3-b3d6-920e302bbb0f" InformativeScreenshot="7b88f9191125b000f5cd7012703eb893" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl tag='INPUT' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;alliance-employer-new-header&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-filters&amp;gt;section&amp;gt;santa-suggest-input&amp;gt;santa-drop-down&amp;gt;div&amp;gt;div&amp;gt;polymorpheus-outlet&amp;gt;santa-input&amp;gt;div&amp;gt;input' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:TypeInto.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:TypeInto>
+                <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="960,22" sap2010:WorkflowViewState.IdRef="Delay_7" />
+                <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'INPUT  santa-input-E160...'" sap:VirtualizedContainerService.HintSize="960,51" sap2010:WorkflowViewState.IdRef="SendHotkey_4" Key="enter" KeyModifiers="None" SpecialKey="True">
+                  <ui:SendHotkey.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="86ebb381-3d05-421c-a644-739d8f7582c6" InformativeScreenshot="9ffe42d8285329a0c87d828be390fddf" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl tag='INPUT' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;alliance-employer-new-header&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-filters&amp;gt;section&amp;gt;santa-suggest-input&amp;gt;santa-drop-down&amp;gt;div&amp;gt;div&amp;gt;polymorpheus-outlet&amp;gt;santa-input&amp;gt;div&amp;gt;input' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:SendHotkey.Target>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:SendHotkey>
+                <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="960,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                <Sequence DisplayName="Location" sap:VirtualizedContainerService.HintSize="960,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'ALLIANCE-ICON'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6002d960-5035-4214-af6f-942aec3d91e8" InformativeScreenshot="15a12fbb413e072b751d4badd453a4b1" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;alliance-*&amp;gt;div&amp;gt;alliance-employer-cvdb-filters&amp;gt;section&amp;gt;santa-suggest-input&amp;gt;santa-drop-down&amp;gt;div&amp;gt;div&amp;gt;polymorpheus-outlet&amp;gt;santa-input&amp;gt;div&amp;gt;polymorpheus-outlet&amp;gt;div&amp;gt;alliance-employer-cvdb-filter-city&amp;gt;santa-drop-down&amp;gt;div&amp;gt;div&amp;gt;polymorpheus-outlet&amp;gt;p&amp;gt;alliance-icon' tag='ALLIANCE-ICON' parentclass='santa-m-0 santa-flex santa-items-center santa-cursor-pointer' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  santa-input-H160...'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_9" SimulateType="True" Text="[Location]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ecd085b9-dc89-4b7b-aae1-785444beab52" InformativeScreenshot="716dd02d6fb277ea5b332e636bd78e08" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl tag='INPUT' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;alliance-employer-new-header&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-filters&amp;gt;section&amp;gt;santa-suggest-input&amp;gt;santa-drop-down&amp;gt;div&amp;gt;div&amp;gt;polymorpheus-outlet&amp;gt;santa-input&amp;gt;div&amp;gt;polymorpheus-outlet&amp;gt;div&amp;gt;alliance-employer-cvdb-filter-city&amp;gt;santa-drop-down&amp;gt;div&amp;gt;div&amp;gt;polymorpheus-outlet&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div&amp;gt;input' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="87f585e4-5fd9-47be-b7b6-60f071047547" InformativeScreenshot="248a8c9cbc1c024a442261ac93fa13bd" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl tag='LI' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;alliance-employer-new-header&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-filters&amp;gt;section&amp;gt;santa-suggest-input&amp;gt;santa-drop-down&amp;gt;div&amp;gt;div&amp;gt;polymorpheus-outlet&amp;gt;santa-input&amp;gt;div&amp;gt;polymorpheus-outlet&amp;gt;div&amp;gt;alliance-employer-cvdb-filter-city&amp;gt;santa-drop-down&amp;gt;div&amp;gt;div&amp;gt;polymorpheus-outlet&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li' idx='1' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                </Sequence>
+                <Sequence DisplayName="sex" sap:VirtualizedContainerService.HintSize="960,746" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Int32" Name="sex_id" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[sex=&quot;М&quot;]" sap:VirtualizedContainerService.HintSize="918,446" sap2010:WorkflowViewState.IdRef="If_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[sex_id]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">9</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="611,299" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If Condition="[sex=&quot;Ж&quot;]" sap:VirtualizedContainerService.HintSize="569,207" sap2010:WorkflowViewState.IdRef="If_7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Int32">[sex_id]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Int32">6</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Then>
+                          <If.Else>
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Int32">[sex_id]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Int32">3</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'POLYMORPHEUS-OUTLET'" sap:VirtualizedContainerService.HintSize="918,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a70464b1-1ccf-470b-a197-a0902432f2e2" InformativeScreenshot="bfb54566303a72dd92111cbbba27ad4c" Selector="&lt;html app='chrome.exe' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-gender&amp;gt;santa-switcher-group&amp;gt;div' tag='DIV' /&gt;&lt;webctrl tag='POLYMORPHEUS-OUTLET' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-gender&amp;gt;santa-switcher-group&amp;gt;div&amp;gt;santa-switcher&amp;gt;label&amp;gt;p&amp;gt;polymorpheus-outlet' idx='{{sex_id}}' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                  </ui:Click>
+                  <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="918,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                </Sequence>
+                <If Condition="[English =&quot;ДА&quot;]" DisplayName="English" sap:VirtualizedContainerService.HintSize="960,51" sap2010:WorkflowViewState.IdRef="If_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'P'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                        <ui:Click.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:Click.CursorPosition>
+                        <ui:Click.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fdd31473-0668-49f7-a266-b62eafb9e494" InformativeScreenshot="09b999a8c7321154feac84b5c1a98c78" Selector="&lt;html app='chrome.exe' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-language&amp;gt;alliance-employer-cvdb-checkbox-recursive-list&amp;gt;div' tag='DIV' idx='1' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-language&amp;gt;alliance-employer-cvdb-checkbox-recursive-list&amp;gt;div&amp;gt;santa-checkbox&amp;gt;div&amp;gt;label&amp;gt;span' tag='SPAN' idx='1' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:Click.Target>
+                      </ui:Click>
+                    </Sequence>
+                  </If.Then>
+                </If>
+                <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="960,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                <Sequence DisplayName="experience" sap:VirtualizedContainerService.HintSize="264,66" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Int32" Name="experience_id" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[experience=0]" sap:VirtualizedContainerService.HintSize="264,51" sap2010:WorkflowViewState.IdRef="If_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[experience_id]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </If.Then>
+                    <If.Else>
+                      <If Condition="[experience&gt;0 And experience &lt; 2]" sap:VirtualizedContainerService.HintSize="878,354" sap2010:WorkflowViewState.IdRef="If_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[experience_id]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">2</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </If.Then>
+                        <If.Else>
+                          <If Condition="[experience &gt; 1 and experience &lt; 3]" sap:VirtualizedContainerService.HintSize="571,207" sap2010:WorkflowViewState.IdRef="If_4">
+                            <If.Then>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[experience_id]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Int32">3</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </If.Then>
+                            <If.Else>
+                              <If Condition="[experience &gt;2 and experience &lt;6]" sap:VirtualizedContainerService.HintSize="264,51" sap2010:WorkflowViewState.IdRef="If_3">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Int32">[experience_id]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Int32">4</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                </If.Then>
+                                <If.Else>
+                                  <If Condition="[experience&gt;5 and experience &lt;10]" sap:VirtualizedContainerService.HintSize="264,51" sap2010:WorkflowViewState.IdRef="If_2">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If.Then>
+                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[experience_id]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">5</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </If.Then>
+                                    <If.Else>
+                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[experience_id]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">6</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </If.Else>
+                                  </If>
+                                </If.Else>
+                              </If>
+                            </If.Else>
+                          </If>
+                        </If.Else>
+                      </If>
+                    </If.Else>
+                  </If>
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="264,51" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8cdbd262-9fec-4ebc-8544-b9834a2cbeb7" InformativeScreenshot="3d394140b51b8590a7c4e2936103145d" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-experience&amp;gt;alliance-employer-cvdb-checkbox-recursive-list&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;polymorpheus-outlet' tag='POLYMORPHEUS-OUTLET' idx='{{experience_id}}' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-experience&amp;gt;alliance-employer-cvdb-checkbox-recursive-list&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;polymorpheus-outlet&amp;gt;div' tag='DIV' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:Click.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:Click>
+                </Sequence>
+                <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="264,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                <Sequence DisplayName="AGE" sap:VirtualizedContainerService.HintSize="264,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" Activate="True" DelayMS="1000" DisplayName="Age from" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="[AgeTO]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3976f6d2-e833-4af3-b3d6-920e302bbb0f" InformativeScreenshot="11912cd66c67aeb94269714356c0abac" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-age&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div' tag='DIV' idx='1' /&gt;&lt;webctrl tag='INPUT' type='text' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-age&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div&amp;gt;input' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayMS="4000" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_5" Key="enter" KeyModifiers="None" SpecialKey="True">
+                    <ui:SendHotkey.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f486f9c0-b170-451e-9a71-c5e375696f65" InformativeScreenshot="d012eba258268e2e8c29965446d3cd36" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-age&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div' tag='DIV' idx='1' /&gt;&lt;webctrl tag='INPUT' type='text' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-age&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div&amp;gt;input' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:SendHotkey.Target>
+                  </ui:SendHotkey>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" Activate="True" DelayMS="1000" DisplayName="Age to" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="True" Text="[AgeFrom]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3976f6d2-e833-4af3-b3d6-920e302bbb0f" InformativeScreenshot="11912cd66c67aeb94269714356c0abac" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-age&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div' tag='DIV' idx='2' /&gt;&lt;webctrl tag='INPUT' type='text' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-age&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div&amp;gt;input' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayMS="4000" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="enter" KeyModifiers="None" SpecialKey="True">
+                    <ui:SendHotkey.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="78ee4a18-c972-4521-a6d5-80662622477d" InformativeScreenshot="f0326d05118b7634e407df02fd7a503a" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-age&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div' tag='DIV' idx='2' /&gt;&lt;webctrl tag='INPUT' type='text' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-age&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div&amp;gt;input' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:SendHotkey.Target>
+                  </ui:SendHotkey>
+                </Sequence>
+                <Sequence DisplayName="salary" sap:VirtualizedContainerService.HintSize="264,66" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" Activate="True" DelayMS="1000" DisplayName="Salary to" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="True" Text="[salaryTo]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3976f6d2-e833-4af3-b3d6-920e302bbb0f" InformativeScreenshot="11912cd66c67aeb94269714356c0abac" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-salary&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div' tag='DIV' idx='1' /&gt;&lt;webctrl tag='INPUT' type='text' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-salary&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div&amp;gt;input' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:TypeInto>
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayMS="4000" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_7" Key="enter" KeyModifiers="None" SpecialKey="True">
+                    <ui:SendHotkey.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f486f9c0-b170-451e-9a71-c5e375696f65" InformativeScreenshot="d012eba258268e2e8c29965446d3cd36" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-salary&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div' tag='DIV' idx='1' /&gt;&lt;webctrl tag='INPUT' type='text' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-salary&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div&amp;gt;input' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:SendHotkey.Target>
+                  </ui:SendHotkey>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" Activate="True" DelayMS="1000" DisplayName="salary From" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="True" Text="[salaryFrom]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3976f6d2-e833-4af3-b3d6-920e302bbb0f" InformativeScreenshot="11912cd66c67aeb94269714356c0abac" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-salary&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div' tag='DIV' idx='2' /&gt;&lt;webctrl tag='INPUT' type='text' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-salary&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div&amp;gt;input' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:TypeInto>
+                  <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayMS="4000" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_8" Key="enter" KeyModifiers="None" SpecialKey="True">
+                    <ui:SendHotkey.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f486f9c0-b170-451e-9a71-c5e375696f65" InformativeScreenshot="d012eba258268e2e8c29965446d3cd36" Selector="&lt;html app='chrome.exe' title='*Robota.ua' /&gt;&lt;webctrl css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-salary&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div' tag='DIV' idx='2' /&gt;&lt;webctrl tag='INPUT' type='text' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-sidebar&amp;gt;div&amp;gt;alliance-employer-cvdb-vertical-filters-panel&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-simple-salary&amp;gt;alliance-employer-cvdb-input-range&amp;gt;div&amp;gt;div&amp;gt;santa-input&amp;gt;div&amp;gt;input' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:SendHotkey.Target>
+                  </ui:SendHotkey>
+                </Sequence>
+              </Sequence>
+              <ui:UiElementExists DisplayName="Element Exists 'H2'" Exists="[AnyCV]" sap:VirtualizedContainerService.HintSize="1002,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                <ui:UiElementExists.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd044be9-eebd-4887-8d9a-9ff6786ca4b6" InformativeScreenshot="dc384d6ff01b7132a6cf4a8f3eb3bc59" Selector="&lt;html app='chrome.exe' title='Robota.ua' /&gt;&lt;webctrl tag='H2' css-selector='body&amp;gt;app-root&amp;gt;div&amp;gt;alliance-cv-list-page&amp;gt;main&amp;gt;article&amp;gt;div&amp;gt;div&amp;gt;alliance-employer-cvdb-cv-list&amp;gt;div&amp;gt;alliance-employer-cvdb-alternative-hints&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;h2' /&gt;" TimeoutMS="2000">
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:UiElementExists.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:UiElementExists>
+            </Sequence>
+          </ActivityAction>
+        </ui:OpenBrowser.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:OpenBrowser>
+    </Sequence>
+  </Sequence>
+</Activity>
